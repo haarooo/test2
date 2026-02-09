@@ -86,6 +86,6 @@ public class View {
         }else{
             System.out.println("게시물 삭제 실패");
         }
-    } //123
+    } //12311
 
 }// c end
