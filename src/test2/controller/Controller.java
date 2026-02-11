@@ -29,8 +29,8 @@ public class Controller {
     }
 
     //물품삭제
-    public boolean delete(int bno){
-        boolean result = bd.delete(bno);
+    public boolean delete(int bno , int pwd){
+        boolean result = bd.delete(bno , pwd);
         return result;
     }
 }

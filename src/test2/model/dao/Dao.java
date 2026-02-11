@@ -77,7 +77,7 @@ public class Dao {
     public boolean update(int bno , int pwd, String product , String content , int price , String phone , boolean isAvailable){
 
         try{
-            String sql = "update product set product=?,content=?,price=?,phone=?,isAvailable=? where bno = ?";
+            String sql = "update product set product=?,content=?,price=?,phone=?,isAvailable=? where bno = ? and pwd = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, product);
             ps.setString(2, content);
@@ -85,6 +85,7 @@ public class Dao {
             ps.setString(4, phone);
             ps.setBoolean(5 , isAvailable);
             ps.setInt(6, bno);
+            ps.setInt(7, pwd);
             int count = ps.executeUpdate();
             if(count ==1){return true;}
             else{return false;}
@@ -93,17 +94,19 @@ public class Dao {
     }
 
     //물품 삭제
-    public boolean delete(int bno){
+    public boolean delete(int bno , int pwd){
         try{
-            String sql = "delete from product where bno = ?";
+            String sql = "delete from product where bno = ? and pwd = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1,bno);
+            ps.setInt(2 ,pwd);
             int count = ps.executeUpdate();
             if(count ==1){return true;}
             else{return false;}
         }catch (SQLException e){System.out.println("sql문법발생 4 " + e);}
         return false;
     }
+
 
 
 

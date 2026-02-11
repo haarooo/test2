@@ -25,7 +25,7 @@ public class View {
             if(num==1){write();
             }else if(num==2){findAll();
             }else if(num==3){update();
-            }else if(num==4){
+            }else if(num==4){delete();
             }else{System.out.println("없는 기능 번호입니다");}
             }catch (InputMismatchException e1){
                 System.out.println("잘못된 입력방식입니다" + e1);
@@ -73,19 +73,19 @@ public class View {
         if(result){
             System.out.println("게시물 수정완료");
         }else{
-            System.out.println("게시물 수정 실패");
+            System.out.println("게시물 수정 실패(비밀번호가 일치하지 않습니다)");
         }
     }
     //4. 등록물품 삭제
     public void delete(){
         System.out.print("삭제할 게시물번호 : "); int bno = scan.nextInt();
         System.out.print("비밀번호 : "); int pwd = scan.nextInt();
-        boolean result = bc.delete(bno);
+        boolean result = bc.delete(bno , pwd);
         if(result){
             System.out.println("게시물 삭제완료");
         }else{
-            System.out.println("게시물 삭제 실패");
+            System.out.println("게시물 삭제 실패(비밀번호가 일치하지 않습니다)");
         }
-    } //12311
+    }
 
 }// c end
